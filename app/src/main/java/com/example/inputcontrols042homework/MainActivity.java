@@ -30,19 +30,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public String getToastMessage() {
-        String message = "Toppings: ";
-        String control = null;
+        String product = "Toppings:";
+        StringBuilder message = new StringBuilder();
+        message.append("Toppings:");
         for (CheckBox checkBox : checkBoxes) {
             if (checkBox.isChecked()) {
-                if (control == null) {
-                    message = message.concat(checkBox.getText().toString());
-                    control = message.concat(checkBox.getText().toString());
+                if (product.equals((message.toString()))) {
+                    message.append( checkBox.getText());
                 } else {
-                    message = message.concat(", " + checkBox.getText().toString());
+                    message.append( ", ");
+                    message.append( checkBox.getText());
                 }
             }
         }
-        return message;
+        return  message.toString();
     }
 
     @Override
